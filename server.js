@@ -3,6 +3,7 @@ import notFoundMiddleware from './middleware/not-found.js';
 import errorHandlerMiddleware from './middleware/error-handler.js';
 import dotenv from 'dotenv';
 import connectDB from './db/connect.js';
+import 'express-async-errors';
 
 //===== ROUTERS
 import authRouter from './routes/authRoutes.js';

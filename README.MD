@@ -830,7 +830,7 @@ app.use('/api/v1/jobs', jobsRouter);
 
 #### Postman
 
-✅✅✅✅✅✅✅✅✅✅✅✅
+✅✅✅
 
 -  URL global var
 -  JOBIFY Collection
@@ -937,7 +937,7 @@ npm install http-status-codes
 
 #### Hash Passwords
 
-✅✅✅
+✅✅✅✅✅✅✅✅✅✅✅✅
 
 -  one way street, only compare hashed values
 -  [bcrypt.js](https://www.npmjs.com/package/bcryptjs)

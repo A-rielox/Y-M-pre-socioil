@@ -1,6 +1,30 @@
+import User from '../models/Users.js';
+import { StatusCodes } from 'http-status-codes';
+import { BadRequestError, UnauthenticatedError } from '../errors/index.js';
+
 // '/api/v1/auth'
 const register = async (req, res) => {
-   res.send('Register');
+   const { name, email, password } = req.body;
+
+   if (!name || !email || !password) {
+      throw new BadRequestError('Favor rellenar todos los valores');
+   }
+
+   const userAlreadyExist = await User.findOne({ email });
+   if (userAlreadyExist) {
+      throw new BadRequestError('Este email ya está registrado');
+   } // como sea es Unique en el schema
+
+   const user = await User.create({ name, email, password });
+
+   res.status(StatusCodes.CREATED).json({
+      user: {
+         email: user.email,
+         lastName: user.lastName,
+         location: user.location,
+         name: user.name,
+      },
+   });
 };
 
 // '/api/v1/auth'
