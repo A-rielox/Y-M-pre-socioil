@@ -1008,7 +1008,7 @@ return jwt.sign({ userId: this._id }, process.env.JWT_SECRET, {
 
 #### Concurrently
 
-✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+✅✅✅
 
 -  front-end and backend (server)
 -  run separate terminals
@@ -1060,7 +1060,7 @@ app.use(cors());
 
 ✅✅✅
 
--  access from anywhere
+-  access from anywhere ( con CORS sin configurar )
 -  don't want to use full url
 
 [cra proxy](https://create-react-app.dev/docs/proxying-api-requests-in-development/)
@@ -1074,7 +1074,7 @@ app.use(cors());
 
 #### Register User - Setup
 
-✅✅✅
+✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
 
 ```js
 appContext.js;
