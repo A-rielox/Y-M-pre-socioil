@@ -1132,7 +1132,7 @@ npm install axios
 
 #### Register User - Complete
 
-✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+✅✅✅
 
 ```js
 appContext.js;
@@ -1265,7 +1265,7 @@ const initialState = {
 
 #### Morgan Package
 
-✅✅✅
+✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
 
 -  http logger middleware for node.js
 -  [morgan docs](https://www.npmjs.com/package/morgan)

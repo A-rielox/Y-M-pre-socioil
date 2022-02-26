@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAppContext } from '../context/appContext';
+
 import { Logo, FormRow, Alert } from '../components';
 import styled from 'styled-components';
 
@@ -11,7 +13,9 @@ const initialState = {
 };
 
 function Register() {
-   const { isLoading, showAlert, displayAlert, registerUser } = useAppContext();
+   const { isLoading, showAlert, displayAlert, registerUser, user } =
+      useAppContext();
+   const navigate = useNavigate();
    const [values, setValues] = useState(initialState);
 
    // global context and useNavigate later
@@ -36,10 +40,17 @@ function Register() {
       if (isMember) {
          console.log('already a member');
       } else {
-         // console.log(currentUser);
          registerUser(currentUser);
       }
    };
+
+   useEffect(() => {
+      if (user) {
+         setTimeout(() => {
+            navigate('/');
+         }, 3000);
+      }
+   }, [user, navigate]);
 
    const toggleMember = () => {
       setValues({ ...values, isMember: !values.isMember });
