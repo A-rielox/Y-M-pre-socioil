@@ -40,14 +40,16 @@ const UserSchema = new mongoose.Schema({
    },
 });
 
-// 📑
+// 📑 PRE-HOOK
 UserSchema.pre('save', async function () {
+   // console.log(this.password) me devuelve lo q pongo como password dahhhhh!!!
    if (!this.isModified('password')) return;
 
    const salt = await bcrypt.genSalt(10);
    this.password = await bcrypt.hash(this.password, salt);
 });
 
+// INSTANCE METHOD
 UserSchema.methods.createJWT = function () {
    // console.log(this); apunta al documento
    return jwt.sign({ userId: this._id }, process.env.JWT_SECRET, {

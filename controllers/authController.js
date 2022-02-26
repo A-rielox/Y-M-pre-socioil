@@ -18,7 +18,7 @@ const register = async (req, res) => {
    const user = await User.create({ name, email, password });
 
    // en el payload del token { userId: this._id }
-   /* const token =  */ user.createJWT();
+   const token = user.createJWT();
 
    res.status(StatusCodes.CREATED).json({
       user: {
@@ -27,6 +27,8 @@ const register = async (req, res) => {
          location: user.location,
          name: user.name,
       },
+      token,
+      location: user.location,
    });
 };
 

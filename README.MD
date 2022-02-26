@@ -937,7 +937,7 @@ npm install http-status-codes
 
 #### Hash Passwords
 
-✅✅✅✅✅✅✅✅✅✅✅✅
+✅✅✅
 
 -  one way street, only compare hashed values
 -  [bcrypt.js](https://www.npmjs.com/package/bcryptjs)
@@ -1008,7 +1008,7 @@ return jwt.sign({ userId: this._id }, process.env.JWT_SECRET, {
 
 #### Concurrently
 
-✅✅✅
+✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
 
 -  front-end and backend (server)
 -  run separate terminals
