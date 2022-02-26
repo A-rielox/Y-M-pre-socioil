@@ -46,7 +46,6 @@ const AppProvider = ({ children }) => {
             '/api/v1/auth/register',
             currentUser
          );
-         console.log(data);
 
          const { user, token, location } = data;
 
@@ -56,6 +55,7 @@ const AppProvider = ({ children }) => {
          });
       } catch (error) {
          console.log(error.response);
+
          dispatch({
             type: REGISTER_USER_ERROR,
             payload: { msg: error.response.data.msg },

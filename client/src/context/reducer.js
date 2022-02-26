@@ -43,7 +43,7 @@ const reducer = (state, action) => {
          isLoading: false,
          showAlert: true,
          alertType: 'success',
-         alertText: 'User Created! Redirecting...',
+         alertText: 'Usuario creado exitosamente...',
       };
    }
 
