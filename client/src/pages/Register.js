@@ -11,7 +11,7 @@ const initialState = {
 };
 
 function Register() {
-   const { isLoading, showAlert, displayAlert } = useAppContext();
+   const { isLoading, showAlert, displayAlert, registerUser } = useAppContext();
    const [values, setValues] = useState(initialState);
 
    // global context and useNavigate later
@@ -33,7 +33,12 @@ function Register() {
       }
 
       const currentUser = { name, email, password };
-      console.log(currentUser);
+      if (isMember) {
+         console.log('already a member');
+      } else {
+         // console.log(currentUser);
+         registerUser(currentUser);
+      }
    };
 
    const toggleMember = () => {
@@ -74,7 +79,11 @@ function Register() {
                handleChange={handleChange}
             />
 
-            <button type="submit" className="btn btn-block">
+            <button
+               type="submit"
+               className="btn btn-block"
+               disabled={isLoading}
+            >
                enviar
             </button>
 

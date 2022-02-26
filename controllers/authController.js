@@ -5,6 +5,7 @@ import { BadRequestError, UnauthenticatedError } from '../errors/index.js';
 // '/api/v1/auth'
 const register = async (req, res) => {
    const { name, email, password } = req.body;
+   console.log(name, email, password);
 
    if (!name || !email || !password) {
       throw new BadRequestError('Favor rellenar todos los valores');

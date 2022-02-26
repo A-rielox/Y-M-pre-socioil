@@ -1074,7 +1074,7 @@ app.use(cors());
 
 #### Register User - Setup
 
-✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+✅✅✅
 
 ```js
 appContext.js;
@@ -1086,7 +1086,7 @@ const initialState = {
 };
 ```
 
--  actions.js REGISTER_USER_BEGIN,SUCCESS,ERROR
+-  actions.js REGISTER_USER_BEGIN, SUCCESS, ERROR
 -  import reducer,appContext
 
 ```js
@@ -1132,7 +1132,7 @@ npm install axios
 
 #### Register User - Complete
 
-✅✅✅
+✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
 
 ```js
 appContext.js;

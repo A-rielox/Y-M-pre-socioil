@@ -4,6 +4,7 @@ import errorHandlerMiddleware from './middleware/error-handler.js';
 import dotenv from 'dotenv';
 import connectDB from './db/connect.js';
 import 'express-async-errors';
+import morgan from 'morgan';
 
 //===== ROUTERS
 import authRouter from './routes/authRoutes.js';
@@ -13,6 +14,9 @@ dotenv.config();
 const app = express();
 
 // @@@@@@@@@@@@@@@@@@@@ MIDDLEWARE
+if (process.env.NODE_ENV !== 'production') {
+   app.use(morgan('dev'));
+}
 app.use(express.json()); // acceso al req.body
 
 app.get('/', (req, res) => {
