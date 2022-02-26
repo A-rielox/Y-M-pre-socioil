@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import validator from 'validator'; // 🥊
-// import bcrypt from 'bcryptjs';
-// import jwt from 'jsonwebtoken';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 
 const UserSchema = new mongoose.Schema({
    name: {
@@ -41,18 +41,19 @@ const UserSchema = new mongoose.Schema({
 });
 
 // 📑
-// UserSchema.pre('save', async function () {
-//    if (!this.isModified('password')) return;
+UserSchema.pre('save', async function () {
+   if (!this.isModified('password')) return;
 
-//    const salt = await bcrypt.genSalt(10);
-//    this.password = await bcrypt.hash(this.password, salt);
-// });
+   const salt = await bcrypt.genSalt(10);
+   this.password = await bcrypt.hash(this.password, salt);
+});
 
-// UserSchema.methods.createJWT = function () {
-//    return jwt.sign({ userId: this._id }, process.env.JWT_SECRET, {
-//       expiresIn: process.env.JWT_LIFETIME,
-//    });
-// };
+UserSchema.methods.createJWT = function () {
+   // console.log(this); apunta al documento
+   return jwt.sign({ userId: this._id }, process.env.JWT_SECRET, {
+      expiresIn: process.env.JWT_LIFETIME,
+   });
+};
 
 // UserSchema.methods.comparePassword = async function (candidatePassword) {
 //    const isMatch = await bcrypt.compare(candidatePassword, this.password);
@@ -67,7 +68,9 @@ export default mongoose.model('User', UserSchema);
 
 //
 // 📑
-// se puede omitir el "next" en funcion(next), di se devuelve una promesa
+// se puede omitir el "next" en funcion(next), si se devuelve una promesa
+// "this" points to instance created by UserSchema
+// el "User.create( )" del register hace trigger de "save", de acuerdo a documentacion de mongoose
 
 //
 // 🥊 paquete para pasarle a la fcn y q me valide el mail, lo de la fcn lo sequé de la documentación. ".isEmail" es la fcn q viene en el package de "validator" para validar el email.

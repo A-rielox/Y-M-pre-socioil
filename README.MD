@@ -1,6 +1,6 @@
 #### Setup React App
 
-✅✅✅
+✅✅
 
 -  create <b>client</b> folder
 -  open terminal
