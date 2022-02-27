@@ -1,26 +1,26 @@
 import styled from 'styled-components';
-// import { useAppContext } from '../context/appContext';
-// import NavLinks from './NavLinks';
+import { useAppContext } from '../context/appContext';
+import NavLinks from './NavLinks';
 import Logo from '../components/Logo';
 
 const BigSidebar = () => {
-   // const { showSidebar } = useAppContext();
+   const { showSidebar } = useAppContext();
 
    return (
       <Wrapper>
          <div
-         // className={
-         //    showSidebar
-         //       ? 'sidebar-container '
-         //       : 'sidebar-container show-sidebar'
-         // }
+            className={
+               showSidebar
+                  ? 'sidebar-container '
+                  : 'sidebar-container show-sidebar'
+            }
          >
             <div className="content">
                <header>
                   <Logo />
                </header>
 
-               {/* <NavLinks /> */}
+               <NavLinks />
             </div>
          </div>
       </Wrapper>
@@ -37,7 +37,7 @@ const Wrapper = styled.aside`
 
       .logo {
          margin-right: 30px;
-         max-width: 100px;
+         max-width: 120px;
       }
 
       .sidebar-container {

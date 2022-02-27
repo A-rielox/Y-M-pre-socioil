@@ -2074,7 +2074,7 @@ return <NavLinks toggleSidebar={toggleSidebar}>
 
 #### Big Sidebar
 
-✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+✅✅✅
 
 ```js
 import { useAppContext } from '../context/appContext';
@@ -2109,7 +2109,7 @@ export default BigSidebar;
 
 #### Authenticate User Setup
 
-✅✅✅
+✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
 
 -  create auth.js in <b>middleware</b>
 
