@@ -42,6 +42,42 @@ const AppContext = React.createContext();
 const AppProvider = ({ children }) => {
    const [state, dispatch] = useReducer(reducer, initialState);
 
+   // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+   // ⭐⭐  para axios ( Axios - Setup Instance )
+   const authFetch = axios.create({
+      baseURL: '/api/v1',
+   });
+
+   //  para axios req interceptor
+   authFetch.interceptors.request.use(
+      config => {
+         config.headers.common['Authorization'] = `Bearer ${state.token}`;
+         return config;
+      },
+      error => {
+         return Promise.reject(error);
+      }
+   );
+
+   //  para axios response interceptor
+   authFetch.interceptors.response.use(
+      response => {
+         return response;
+      },
+      error => {
+         // esta es la gracia, poder customizar para los distintos errores, y YO controlar la respuesta ente los errores
+         // console.log(error.response);
+
+         if (error.response.status === 401) {
+            // logoutUser();
+            console.log('desde interceptor res: ERROR 401');
+         }
+         return Promise.reject(error);
+      }
+   );
+
+   // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
    const displayAlert = () => {
       dispatch({ type: DISPLAY_ALERT });
       clearAlert();
@@ -132,6 +168,21 @@ const AppProvider = ({ children }) => {
       removeUserFromLocalStorage();
    };
 
+   const updateUser = async currentUser => {
+      try {
+         // ⭐⭐
+         const { data } = await authFetch.patch(
+            '/auth/updateUser',
+            currentUser
+         );
+
+         console.log(data);
+      } catch (error) {
+         // console.log(error.response);
+      }
+      // console.log(currentUser);
+   };
+
    return (
       <AppContext.Provider
          value={{
@@ -141,6 +192,7 @@ const AppProvider = ({ children }) => {
             loginUser,
             toggleSidebar,
             logoutUser,
+            updateUser,
          }}
       >
          {children}

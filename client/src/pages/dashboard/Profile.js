@@ -1,12 +1,75 @@
-// import { useState } from 'react';
-// import { FormRow, Alert } from '../../components';
-// import { useAppContext } from '../../context/appContext';
+import { useState } from 'react';
+import { FormRow, Alert } from '../../components';
+import { useAppContext } from '../../context/appContext';
 import styled from 'styled-components';
 
 const Profile = () => {
+   const { user, showAlert, displayAlert, updateUser, isLoading } =
+      useAppContext();
+   const [name, setName] = useState(user?.name);
+   const [email, setEmail] = useState(user?.email);
+   const [lastName, setLastName] = useState(user?.lastName);
+   const [location, setLocation] = useState(user?.location);
+
+   const handleSubmit = e => {
+      e.preventDefault();
+
+      // if (!name || !email || !lastName || !location) {
+      //    // test and remove temporary
+      //    displayAlert();
+      //    return;
+      // }
+
+      updateUser({ name, email, lastName, location });
+   };
+
    return (
       <Wrapper>
-         <h1>Profile</h1>
+         <form className="form" onSubmit={handleSubmit}>
+            <h3>perfil </h3>
+            {showAlert && <Alert />}
+
+            {/* name */}
+            <div className="form-center">
+               <FormRow
+                  labelText="nombre"
+                  type="text"
+                  name="name"
+                  value={name}
+                  handleChange={e => setName(e.target.value)}
+               />
+               <FormRow
+                  labelText="apellido"
+                  type="text"
+                  name="lastName"
+                  value={lastName}
+                  handleChange={e => setLastName(e.target.value)}
+               />
+               <FormRow
+                  labelText="correo"
+                  type="email"
+                  name="email"
+                  value={email}
+                  handleChange={e => setEmail(e.target.value)}
+               />
+
+               <FormRow
+                  labelText="ubicación"
+                  type="text"
+                  name="location"
+                  value={location}
+                  handleChange={e => setLocation(e.target.value)}
+               />
+
+               <button
+                  className="btn btn-block"
+                  type="submit"
+                  disabled={isLoading}
+               >
+                  {isLoading ? 'Actualizando...' : 'Guardar cambios'}
+               </button>
+            </div>
+         </form>
       </Wrapper>
    );
 };

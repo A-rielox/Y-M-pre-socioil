@@ -2249,7 +2249,7 @@ export default auth;
 
 #### Update User
 
-✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+✅✅✅
 
 ```js
 const updateUser = async (req, res) => {
@@ -2483,7 +2483,7 @@ authFetch.interceptors.response.use(
 
 #### Update User
 
-✅✅✅
+✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
 
 ```js
 actions.js;
