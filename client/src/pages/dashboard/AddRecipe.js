@@ -6,7 +6,7 @@ import styled from 'styled-components';
 const AddRecipe = () => {
    return (
       <Wrapper>
-         <h1>Add Job</h1>
+         <h1>añadir receta</h1>
       </Wrapper>
    );
 };

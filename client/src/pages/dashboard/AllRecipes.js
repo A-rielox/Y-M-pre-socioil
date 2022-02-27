@@ -1,7 +1,7 @@
-import { JobsContainer, SearchContainer } from '../../components';
+// import { JobsContainer, SearchContainer } from '../../components';
 
 const AllRecipes = () => {
-   return <h1>all jobs</h1>;
+   return <h1>todas las recetas</h1>;
 };
 
 export default AllRecipes;

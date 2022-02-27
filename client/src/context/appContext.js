@@ -13,7 +13,11 @@ import {
    TOGGLE_SIDEBAR,
    LOGOUT_USER,
 } from './actions';
+/* 
 
+2110 de readme
+
+*/
 const token = localStorage.getItem('token');
 const user = localStorage.getItem('user');
 const userLocation = localStorage.getItem('location');
