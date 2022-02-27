@@ -2,7 +2,7 @@ import User from '../models/Users.js';
 import { StatusCodes } from 'http-status-codes';
 import { BadRequestError, UnauthenticatedError } from '../errors/index.js';
 
-// '/api/v1/auth'
+// '/api/v1/auth/register'
 const register = async (req, res) => {
    const { name, email, password } = req.body;
 
@@ -32,9 +32,28 @@ const register = async (req, res) => {
    });
 };
 
-// '/api/v1/auth'
+// '/api/v1/auth/login' -- post
 const login = async (req, res) => {
-   res.send('Login');
+   const { email, password } = req.body;
+
+   if (!email || !password) {
+      throw new BadRequestError('Favor proveer todos los campos');
+   }
+
+   const user = await User.findOne({ email }).select('+password');
+   if (!user) {
+      throw new UnauthenticatedError('Credenciales invalidas');
+   }
+
+   const isPasswordCorrect = await user.comparePassword(password);
+   if (!isPasswordCorrect) {
+      throw new UnauthenticatedError('Credenciales invalidas');
+   }
+
+   const token = user.createJWT();
+   user.password = undefined;
+
+   res.status(StatusCodes.OK).json({ user, token, location: user.location });
 };
 
 // '/api/v1/auth'

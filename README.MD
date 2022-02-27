@@ -1265,7 +1265,7 @@ const initialState = {
 
 #### Morgan Package
 
-✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+✅✅✅
 
 -  http logger middleware for node.js
 -  [morgan docs](https://www.npmjs.com/package/morgan)
@@ -1523,7 +1523,7 @@ const onSubmit = e => {
 
 #### Dashboard pages
 
-✅✅✅
+✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
 
 -  delete Dashboard.js
 -  fix imports/exports
