@@ -5,13 +5,13 @@ import Logo from './Logo';
 import styled from 'styled-components';
 
 const Navbar = () => {
-   const { /* toggleSidebar,  logoutUser,*/ user } = useAppContext();
+   const { toggleSidebar, logoutUser, user } = useAppContext();
    const [showLogout, setShowLogout] = useState(false);
 
    return (
       <Wrapper>
          <div className="nav-center">
-            <button className="toggle-btn" /* onClick={toggleSidebar} */>
+            <button className="toggle-btn" onClick={toggleSidebar}>
                <FaAlignLeft />
             </button>
 
@@ -34,7 +34,7 @@ const Navbar = () => {
                   className={`dropdown ${showLogout ? 'show-dropdown' : null} `}
                >
                   <button
-                     /* onClick={logoutUser} */
+                     onClick={logoutUser}
                      type="button"
                      className="dropdown-btn"
                   >

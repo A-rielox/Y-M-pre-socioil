@@ -34,6 +34,12 @@ const Wrapper = styled.aside`
    @media (min-width: 992px) {
       display: block;
       box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.1);
+
+      .logo {
+         margin-right: 30px;
+         max-width: 100px;
+      }
+
       .sidebar-container {
          background: var(--white);
          min-height: 100vh;

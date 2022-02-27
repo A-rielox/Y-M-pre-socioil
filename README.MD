@@ -1634,7 +1634,7 @@ const ProtectedRoute = ({ children }) => {
 
 #### Navbar, SmallSidebar, BigSidebar
 
-✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+✅✅✅
 
 -  create Navbar, SmallSidebar, BigSidebar in components
 -  import Wrappers from assets/wrappers
@@ -1884,7 +1884,7 @@ return (
 
 #### Setup Links
 
-✅✅✅
+✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
 
 -  create <b>utils</b>in the <b>src</b>
 -  setup links.js
