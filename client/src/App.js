@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route /* Link */ } from 'react-router-dom';
 import { Landing, Register, Error, ProtectedRoute } from './pages';
 import {
    AddRecipe,
@@ -9,8 +9,8 @@ import {
 } from './pages/dashboard';
 /* 
 
-video 
-2110 de readme
+video 112
+2252 de readme
 
 */
 function App() {

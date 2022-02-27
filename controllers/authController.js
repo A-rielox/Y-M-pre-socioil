@@ -58,6 +58,7 @@ const login = async (req, res) => {
 
 // '/api/v1/auth'
 const updateUser = async (req, res) => {
+   console.log(req.user);
    res.send('Update User');
 };
 

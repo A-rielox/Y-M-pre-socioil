@@ -2109,7 +2109,7 @@ export default BigSidebar;
 
 #### Authenticate User Setup
 
-✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+✅✅✅
 
 -  create auth.js in <b>middleware</b>
 
@@ -2249,7 +2249,7 @@ export default auth;
 
 #### Update User
 
-✅✅✅
+✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
 
 ```js
 const updateUser = async (req, res) => {

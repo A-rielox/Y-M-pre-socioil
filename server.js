@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import connectDB from './db/connect.js';
 import 'express-async-errors';
 import morgan from 'morgan';
+import authenticateUser from './middleware/auth.js';
 
 //===== ROUTERS
 import authRouter from './routes/authRoutes.js';
@@ -25,7 +26,7 @@ app.get('/', (req, res) => {
 
 //===== ROUTES
 app.use('/api/v1/auth', authRouter);
-app.use('/api/v1/recetas', recetasRouter);
+app.use('/api/v1/recetas', authenticateUser, recetasRouter);
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
