@@ -1,21 +1,21 @@
-import styled from 'styled-components';
 import { FaTimes } from 'react-icons/fa';
-// import { useAppContext } from '../context/appContext';
+import { useAppContext } from '../context/appContext';
 import Logo from './Logo';
-// import NavLinks from './NavLinks';
+import NavLinks from './NavLinks';
+import styled from 'styled-components';
 
 const SmallSidebar = () => {
-   // const { showSidebar, toggleSidebar } = useAppContext();
+   const { showSidebar, toggleSidebar } = useAppContext();
 
    return (
       <Wrapper>
          <div
-         // className={`sidebar-container ${
-         //    showSidebar ? 'show-sidebar' : null
-         // }`}
+            className={`sidebar-container ${
+               showSidebar ? 'show-sidebar' : null
+            }`}
          >
             <div className="content">
-               <button className="close-btn" /* onClick={toggleSidebar} */>
+               <button className="close-btn" onClick={toggleSidebar}>
                   <FaTimes />
                </button>
 
@@ -23,7 +23,7 @@ const SmallSidebar = () => {
                   <Logo />
                </header>
 
-               {/* <NavLinks toggleSidebar={toggleSidebar} /> */}
+               <NavLinks toggleSidebar={toggleSidebar} />
             </div>
          </div>
       </Wrapper>

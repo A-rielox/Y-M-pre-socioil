@@ -1884,7 +1884,7 @@ return (
 
 #### Setup Links
 
-✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+✅✅✅
 
 -  create <b>utils</b>in the <b>src</b>
 -  setup links.js
@@ -2074,7 +2074,7 @@ return <NavLinks toggleSidebar={toggleSidebar}>
 
 #### Big Sidebar
 
-✅✅✅
+✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
 
 ```js
 import { useAppContext } from '../context/appContext';
