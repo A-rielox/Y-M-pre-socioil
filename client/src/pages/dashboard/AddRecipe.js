@@ -3,7 +3,7 @@
 import styled from 'styled-components';
 
 // los valores los pongo en el global ( y no en la pura pag como en el register ) xq para editar y agregar job voy a ocupar la misma pag
-const AddJob = () => {
+const AddRecipe = () => {
    return (
       <Wrapper>
          <h1>Add Job</h1>
@@ -11,7 +11,7 @@ const AddJob = () => {
    );
 };
 
-export default AddJob;
+export default AddRecipe;
 
 const Wrapper = styled.section`
    border-radius: var(--borderRadius);

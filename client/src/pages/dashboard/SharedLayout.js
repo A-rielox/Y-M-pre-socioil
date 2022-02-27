@@ -1,5 +1,5 @@
-// import { useAppContext } from '../../context/appContext';
-// import { Outlet } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
+import { useAppContext } from '../../context/appContext';
 // import { Navbar, SmallSidebar, BigSidebar } from '../../components';
 import styled from 'styled-components';
 
@@ -8,6 +8,12 @@ const SharedLayout = () => {
 
    return (
       <Wrapper>
+         <nav>
+            <Link to="all-recipes">all-recipes </Link>
+            <Link to="add-recipe">add-recipe </Link>
+         </nav>
+         <Outlet />
+
          {/* <main className="dashboard">
             <SmallSidebar />
             <BigSidebar />
@@ -23,6 +29,7 @@ const SharedLayout = () => {
       </Wrapper>
    );
 };
+// el <Outlet /> es para q se rendericen las pags nesteadas
 
 export default SharedLayout;
 
