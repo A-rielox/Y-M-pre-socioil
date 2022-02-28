@@ -16,9 +16,11 @@ import {
    UPDATE_USER_SUCCESS,
    UPDATE_USER_ERROR,
 } from './actions';
+
+import { statusList, jobTypeList } from '../utils/optionLists.js';
 /* 
 
-2599 de readme
+2673 de readme
 
 */
 const token = localStorage.getItem('token');
@@ -38,6 +40,15 @@ export const initialState = {
    jobLocation: userLocation || '' /* ❌ */,
    //sidebar
    showSidebar: false,
+   // create job ( TODO LO DE JOBSCHEMA )
+   isEditing: false,
+   editJobId: '',
+   company: '',
+   position: '',
+   statusOptions: statusList,
+   status: 'pending',
+   jobTypeOptions: jobTypeList,
+   jobType: 'full-time',
 };
 
 const AppContext = React.createContext();

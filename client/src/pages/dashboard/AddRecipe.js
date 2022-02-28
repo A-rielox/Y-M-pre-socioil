@@ -1,12 +1,124 @@
-// import { FormRow, Alert, FormRowSelect } from '../../components';
-// import { useAppContext } from '../../context/appContext';
+import { FormRow, Alert, FormRowSelect } from '../../components';
+import { useAppContext } from '../../context/appContext';
 import styled from 'styled-components';
 
-// los valores los pongo en el global ( y no en la pura pag como en el register ) xq para editar y agregar job voy a ocupar la misma pag
+// los valores los pongo en el global ( y no en la pura pag como en el register ) xq para editar y agregar job voy a ocupar la misma pag ( y la diferencia en la pag la hago con el "isEditing" )
 const AddRecipe = () => {
+   const {
+      isLoading,
+      showAlert,
+      displayAlert,
+      position,
+      company,
+      jobLocation,
+      jobType,
+      jobTypeOptions,
+      status,
+      statusOptions,
+      // handleChange,
+      // clearValues,
+      // createJob,
+      isEditing,
+      // editJob,
+   } = useAppContext();
+
+   const handleSubmit = e => {
+      e.preventDefault();
+
+      if (!position || !company || !jobLocation) {
+         displayAlert();
+         return;
+      }
+
+      console.log('create job');
+
+      // if (isEditing) {
+      //    editJob();
+      //    return;
+      // }
+
+      // createJob();
+   };
+
+   const handleJobInput = e => {
+      const name = e.target.name;
+      const value = e.target.value;
+
+      console.log(`${name}:${value}`);
+      // handleChange({ name, value });
+   };
+
    return (
       <Wrapper>
-         <h1>añadir receta</h1>
+         <form className="form">
+            <h3>{isEditing ? 'edit job' : 'add job'} </h3>
+            {showAlert && <Alert />}
+
+            {/* position */}
+            <div className="form-center">
+               <FormRow
+                  type="text"
+                  name="position"
+                  value={position}
+                  handleChange={handleJobInput}
+               />
+               {/* company */}
+               <FormRow
+                  type="text"
+                  name="company"
+                  value={company}
+                  handleChange={handleJobInput}
+               />
+               {/* location */}
+               <FormRow
+                  type="text"
+                  labelText="Job location"
+                  name="jobLocation"
+                  value={jobLocation}
+                  handleChange={handleJobInput}
+               />
+
+               {/* job status */}
+               <FormRowSelect
+                  name="status"
+                  value={status}
+                  handleChange={handleJobInput}
+                  list={statusOptions}
+               />
+
+               {/* job type */}
+               <FormRowSelect
+                  labelText="job type"
+                  name="jobType"
+                  value={jobType}
+                  handleChange={handleJobInput}
+                  list={jobTypeOptions}
+               />
+
+               <div className="btn-container">
+                  <button
+                     className="btn btn-block submit-btn"
+                     type="submit"
+                     onClick={handleSubmit}
+                     disabled={isLoading}
+                  >
+                     submit
+                  </button>
+
+                  {/* este tiene q ir despues del submit button  */}
+                  <button
+                     className="btn btn-block clear-btn"
+                     onClick={e => {
+                        e.preventDefault();
+                        // clearValues();
+                        console.log('limpiando');
+                     }}
+                  >
+                     clear
+                  </button>
+               </div>
+            </div>
+         </form>
       </Wrapper>
    );
 };

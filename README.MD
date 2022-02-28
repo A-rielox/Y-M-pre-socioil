@@ -2596,7 +2596,7 @@ const updateUser = async currentUser => {
 
 #### Job Model
 
-✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+✅✅✅
 
 -  Job Model
 
@@ -2872,7 +2872,7 @@ return (
 
 #### Change State Values With Handle Change
 
-✅✅✅
+✅✅✅✅✅✅✅✅✅✅✅
 
 -  [JS Nuggets Dynamic Object Keys](https://youtu.be/_qxCYtWm0tw)
 

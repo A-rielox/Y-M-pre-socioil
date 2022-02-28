@@ -1,6 +1,21 @@
+import Job from '../models/Job.js';
+import { StatusCodes } from 'http-status-codes';
+import { BadRequestError, NotFoundError } from '../errors/index.js';
+
 //'/api/v1/recetas'
 const createReceta = async (req, res) => {
-   res.send('Create Receta gg');
+   const { position, company } = req.body;
+
+   if (!position || !company) {
+      throw new BadRequestError('Favor proveer todos los valores');
+   }
+
+   req.body.createdBy = req.user.userId;
+
+   // OJO q estoy pasando todo el req.body
+   const job = await Job.create(req.body);
+
+   res.status(StatusCodes.CREATED).json({ job });
 };
 
 //'/api/v1/recetas'
