@@ -1,4 +1,4 @@
-import React, { useReducer, useContext } from 'react';
+import React, { useReducer, useContext, useEffect } from 'react';
 import reducer from './reducer';
 import axios from 'axios';
 import {
@@ -20,6 +20,8 @@ import {
    CREATE_JOB_BEGIN,
    CREATE_JOB_SUCCESS,
    CREATE_JOB_ERROR,
+   GET_JOBS_BEGIN,
+   GET_JOBS_SUCCESS,
 } from './actions';
 
 import { statusList, jobTypeList } from '../utils/optionLists.js';
@@ -54,6 +56,11 @@ export const initialState = {
    status: 'pending',
    jobTypeOptions: jobTypeList,
    jobType: 'full-time',
+   // para obtener todos los jobs
+   jobs: [],
+   totalJobs: 0,
+   numOfPages: 1,
+   page: 1,
 };
 
 const AppContext = React.createContext();
@@ -222,7 +229,7 @@ const AppProvider = ({ children }) => {
       dispatch({ type: CLEAR_VALUES });
    };
 
-   const createJob = () => {
+   const createJob = async () => {
       dispatch({ type: CREATE_JOB_BEGIN });
 
       try {
@@ -241,12 +248,41 @@ const AppProvider = ({ children }) => {
 
          dispatch({ type: CLEAR_VALUES });
       } catch (error) {
+         // el "if" es para no tener la alerta dando vuelta ( q no se mande )
+         if (error.response.status === 401) return;
+
          dispatch({
             type: CREATE_JOB_ERROR,
             payload: { msg: error.response.data.msg },
          });
       }
+      clearAlert();
    };
+
+   const getJobs = async () => {
+      let url = `/recetas`;
+
+      dispatch({ type: GET_JOBS_BEGIN });
+
+      try {
+         const { data } = await authFetch.get(url);
+         const { jobs, totalJobs, numOfPages } = data;
+
+         dispatch({
+            type: GET_JOBS_SUCCESS,
+            payload: { jobs, totalJobs, numOfPages },
+         });
+      } catch (error) {
+         console.log(error.response);
+
+         logoutUser();
+      }
+      clearAlert();
+   };
+
+   useEffect(() => {
+      getJobs();
+   }, []);
 
    return (
       <AppContext.Provider
@@ -261,6 +297,7 @@ const AppProvider = ({ children }) => {
             handleChange,
             clearValues,
             createJob,
+            getJobs,
          }}
       >
          {children}

@@ -3064,7 +3064,7 @@ if (action.type === CREATE_JOB_ERROR) {
 
 #### Get All Jobs
 
-✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+✅✅✅
 
 ```js
 jobsController.js;
@@ -3097,7 +3097,8 @@ const initialState = {
 
 #### Get All Jobs Request
 
-✅✅✅
+✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
 
 ```js
 actions.js;
@@ -3270,6 +3271,8 @@ export default Job;
 
 #### Job Component - Setup
 
+✅✅✅
+✅✅✅
 ✅✅✅
 
 ```js

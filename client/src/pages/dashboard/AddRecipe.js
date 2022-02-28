@@ -22,14 +22,23 @@ const AddRecipe = () => {
       // editJob,
    } = useAppContext();
 
+   // PRIMERO CAMBIO TODO EN EL STATE ( LOS DATOS DEL JOB ), Y LUEGO LO MANDO
+
+   const handleJobInput = e => {
+      const name = e.target.name;
+      const value = e.target.value;
+
+      handleChange({ name, value });
+   };
+
    const handleSubmit = e => {
       e.preventDefault();
 
-      // mientras pruebo
-      // if (!position || !company || !jobLocation) {
-      //    displayAlert();
-      //    return;
-      // }
+      // como sea lo pruebo en la API
+      if (!position || !company || !jobLocation) {
+         displayAlert();
+         return;
+      }
 
       console.log('create job');
 
@@ -40,13 +49,6 @@ const AddRecipe = () => {
 
       // lo manda a crear con los valores q tiene en el state
       createJob();
-   };
-
-   const handleJobInput = e => {
-      const name = e.target.name;
-      const value = e.target.value;
-
-      handleChange({ name, value });
    };
 
    return (
