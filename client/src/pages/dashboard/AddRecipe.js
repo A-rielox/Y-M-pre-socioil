@@ -15,9 +15,9 @@ const AddRecipe = () => {
       jobTypeOptions,
       status,
       statusOptions,
-      // handleChange,
-      // clearValues,
-      // createJob,
+      handleChange,
+      clearValues,
+      createJob,
       isEditing,
       // editJob,
    } = useAppContext();
@@ -25,27 +25,28 @@ const AddRecipe = () => {
    const handleSubmit = e => {
       e.preventDefault();
 
-      if (!position || !company || !jobLocation) {
-         displayAlert();
-         return;
-      }
-
-      console.log('create job');
-
-      // if (isEditing) {
-      //    editJob();
+      // mientras pruebo
+      // if (!position || !company || !jobLocation) {
+      //    displayAlert();
       //    return;
       // }
 
-      // createJob();
+      console.log('create job');
+
+      if (isEditing) {
+         // editJob();
+         return;
+      }
+
+      // lo manda a crear con los valores q tiene en el state
+      createJob();
    };
 
    const handleJobInput = e => {
       const name = e.target.name;
       const value = e.target.value;
 
-      console.log(`${name}:${value}`);
-      // handleChange({ name, value });
+      handleChange({ name, value });
    };
 
    return (
@@ -110,7 +111,7 @@ const AddRecipe = () => {
                      className="btn btn-block clear-btn"
                      onClick={e => {
                         e.preventDefault();
-                        // clearValues();
+                        clearValues();
                         console.log('limpiando');
                      }}
                   >

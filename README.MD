@@ -2872,7 +2872,7 @@ return (
 
 #### Change State Values With Handle Change
 
-✅✅✅✅✅✅✅✅✅✅✅
+✅✅✅
 
 -  [JS Nuggets Dynamic Object Keys](https://youtu.be/_qxCYtWm0tw)
 
@@ -3064,7 +3064,7 @@ if (action.type === CREATE_JOB_ERROR) {
 
 #### Get All Jobs
 
-✅✅✅
+✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
 
 ```js
 jobsController.js;

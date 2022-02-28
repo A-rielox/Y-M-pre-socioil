@@ -15,12 +15,17 @@ import {
    UPDATE_USER_BEGIN,
    UPDATE_USER_SUCCESS,
    UPDATE_USER_ERROR,
+   HANDLE_CHANGE,
+   CLEAR_VALUES,
+   CREATE_JOB_BEGIN,
+   CREATE_JOB_SUCCESS,
+   CREATE_JOB_ERROR,
 } from './actions';
 
 import { statusList, jobTypeList } from '../utils/optionLists.js';
 /* 
 
-2673 de readme
+3067 de readme
 
 */
 const token = localStorage.getItem('token');
@@ -209,6 +214,40 @@ const AppProvider = ({ children }) => {
       clearAlert();
    };
 
+   const handleChange = ({ name, value }) => {
+      dispatch({ type: HANDLE_CHANGE, payload: { name, value } });
+   };
+
+   const clearValues = () => {
+      dispatch({ type: CLEAR_VALUES });
+   };
+
+   const createJob = () => {
+      dispatch({ type: CREATE_JOB_BEGIN });
+
+      try {
+         // saco todo del state
+         const { position, company, jobLocation, jobType, status } = state;
+
+         await authFetch.post('/recetas', {
+            position,
+            company,
+            jobLocation,
+            jobType,
+            status,
+         });
+
+         dispatch({ type: CREATE_JOB_SUCCESS });
+
+         dispatch({ type: CLEAR_VALUES });
+      } catch (error) {
+         dispatch({
+            type: CREATE_JOB_ERROR,
+            payload: { msg: error.response.data.msg },
+         });
+      }
+   };
+
    return (
       <AppContext.Provider
          value={{
@@ -219,6 +258,9 @@ const AppProvider = ({ children }) => {
             toggleSidebar,
             logoutUser,
             updateUser,
+            handleChange,
+            clearValues,
+            createJob,
          }}
       >
          {children}
