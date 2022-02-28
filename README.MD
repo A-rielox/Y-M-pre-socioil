@@ -2483,7 +2483,7 @@ authFetch.interceptors.response.use(
 
 #### Update User
 
-✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+✅✅✅
 
 ```js
 actions.js;
@@ -2596,7 +2596,7 @@ const updateUser = async currentUser => {
 
 #### Job Model
 
-✅✅✅
+✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
 
 -  Job Model
 

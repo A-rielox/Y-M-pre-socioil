@@ -12,10 +12,13 @@ import {
    LOGIN_USER_ERROR,
    TOGGLE_SIDEBAR,
    LOGOUT_USER,
+   UPDATE_USER_BEGIN,
+   UPDATE_USER_SUCCESS,
+   UPDATE_USER_ERROR,
 } from './actions';
 /* 
 
-2110 de readme
+2599 de readme
 
 */
 const token = localStorage.getItem('token');
@@ -66,10 +69,8 @@ const AppProvider = ({ children }) => {
       },
       error => {
          // esta es la gracia, poder customizar para los distintos errores, y YO controlar la respuesta ente los errores
-         // console.log(error.response);
-
          if (error.response.status === 401) {
-            // logoutUser();
+            logoutUser();
             console.log('desde interceptor res: ERROR 401');
          }
          return Promise.reject(error);
@@ -169,6 +170,8 @@ const AppProvider = ({ children }) => {
    };
 
    const updateUser = async currentUser => {
+      dispatch({ type: UPDATE_USER_BEGIN });
+
       try {
          // ⭐⭐
          const { data } = await authFetch.patch(
@@ -176,11 +179,23 @@ const AppProvider = ({ children }) => {
             currentUser
          );
 
-         console.log(data);
+         const { user, token, location } = data;
+
+         dispatch({
+            type: UPDATE_USER_SUCCESS,
+            payload: { user, token, location },
+         });
+
+         addUserToLocalStorage({ user, token, location });
       } catch (error) {
-         // console.log(error.response);
+         if (error.response.status === 401) {
+            dispatch({
+               type: UPDATE_USER_ERROR,
+               payload: { msg: error.response.data.msg },
+            });
+         }
       }
-      // console.log(currentUser);
+      clearAlert();
    };
 
    return (
