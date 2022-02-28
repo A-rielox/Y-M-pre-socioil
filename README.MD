@@ -3097,8 +3097,7 @@ const initialState = {
 
 #### Get All Jobs Request
 
-✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
-✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+✅✅✅
 
 ```js
 actions.js;
@@ -3109,7 +3108,7 @@ export const GET_JOBS_SUCCESS = 'GET_JOBS_SUCCESS';
 ```js
 appContext.js
 
-import React, { useReducer, useContext, useEffect } from 'react'
+import React, { useReducer, useContext } from 'react'
 
 const getJobs = async () => {
   let url = `/jobs`
@@ -3133,9 +3132,7 @@ const getJobs = async () => {
   clearAlert()
 }
 
-useEffect(() => {
-  getJobs()
-}, [])
+
 
 value={{getJobs}}
 
@@ -3272,8 +3269,6 @@ export default Job;
 #### Job Component - Setup
 
 ✅✅✅
-✅✅✅
-✅✅✅
 
 ```js
 appContext.js
@@ -3385,6 +3380,8 @@ return (
 
 #### SetEditJob
 
+✅✅✅
+✅✅✅
 ✅✅✅
 
 ```js

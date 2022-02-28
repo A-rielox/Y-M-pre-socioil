@@ -1,4 +1,4 @@
-import React, { useReducer, useContext, useEffect } from 'react';
+import React, { useReducer, useContext } from 'react';
 import reducer from './reducer';
 import axios from 'axios';
 import {
@@ -275,14 +275,18 @@ const AppProvider = ({ children }) => {
       } catch (error) {
          console.log(error.response);
 
-         logoutUser();
+         // logoutUser();
       }
       clearAlert();
    };
 
-   useEffect(() => {
-      getJobs();
-   }, []);
+   const setEditJob = id => {
+      console.log(`set edit job : ${id}`);
+   };
+
+   const deleteJob = id => {
+      console.log(`delete : ${id}`);
+   };
 
    return (
       <AppContext.Provider
@@ -298,6 +302,8 @@ const AppProvider = ({ children }) => {
             clearValues,
             createJob,
             getJobs,
+            setEditJob,
+            deleteJob,
          }}
       >
          {children}

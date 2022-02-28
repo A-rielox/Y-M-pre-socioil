@@ -31,6 +31,7 @@ const JobsContainer = () => {
    if (isLoading) {
       return <Loading center />;
    }
+
    if (jobs.length === 0) {
       return (
          <Wrapper>
@@ -50,6 +51,7 @@ const JobsContainer = () => {
                return <Job key={job._id} {...job} />;
             })}
          </div>
+
          {/* {numOfPages > 1 && <PageBtnContainer />} */}
       </Wrapper>
    );

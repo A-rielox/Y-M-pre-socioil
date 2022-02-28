@@ -1,6 +1,6 @@
 import { FaLocationArrow, FaBriefcase, FaCalendarAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-// import { useAppContext } from '../context/appContext';
+import { useAppContext } from '../context/appContext';
 
 import moment from 'moment';
 import JobInfo from './JobInfo';
@@ -15,7 +15,7 @@ const Job = ({
    createdAt,
    status,
 }) => {
-   // const { setEditJob, deleteJob } = useAppContext();
+   const { setEditJob, deleteJob } = useAppContext();
 
    let date = moment(createdAt);
    date = date.format('MMM Do, YYYY');
@@ -36,6 +36,7 @@ const Job = ({
                <JobInfo icon={<FaLocationArrow />} text={jobLocation} />
                <JobInfo icon={<FaCalendarAlt />} text={date} />
                <JobInfo icon={<FaBriefcase />} text={jobType} />
+
                <div className={`status ${status}`}>{status}</div>
             </div>
 
@@ -43,15 +44,16 @@ const Job = ({
                <div className="actions">
                   <Link
                      to="/add-recipe"
-                     // onClick={() => setEditJob(_id)}
+                     onClick={() => setEditJob(_id)}
                      className="btn edit-btn"
                   >
                      Edit
                   </Link>
+
                   <button
                      type="button"
                      className="btn delete-btn"
-                     // onClick={() => deleteJob(_id)}
+                     onClick={() => deleteJob(_id)}
                   >
                      Delete
                   </button>
