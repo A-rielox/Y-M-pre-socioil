@@ -3590,9 +3590,7 @@ const deleteJob = async (req, res) => {
 
 #### Delete Job - Front-End
 
-✅✅✅✅✅✅✅✅✅
-✅✅✅✅✅✅✅✅✅
-✅✅✅✅✅✅✅✅✅
+✅✅✅
 
 ```js
 actions.js;
@@ -3695,7 +3693,9 @@ if (action.type === EDIT_JOB_ERROR) {
 
 #### Populate Database
 
-✅✅✅
+✅✅✅✅✅✅✅✅✅
+✅✅✅✅✅✅✅✅✅
+✅✅✅✅✅✅✅✅✅
 
 -  create populate.js in the root
 
