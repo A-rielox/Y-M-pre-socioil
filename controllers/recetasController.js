@@ -2,6 +2,8 @@ import Job from '../models/Job.js';
 import { StatusCodes } from 'http-status-codes';
 import { BadRequestError, NotFoundError } from '../errors/index.js';
 import checkPermissions from '../utils/checkPermissions.js';
+import mongoose from 'mongoose';
+import moment from 'moment';
 
 //'/api/v1/recetas' -- .post(createReceta)
 const createReceta = async (req, res) => {
@@ -74,7 +76,71 @@ const updateReceta = async (req, res) => {
 
 //'/api/v1/recetas' -- route('/stats').get(showStats);
 const showStats = async (req, res) => {
-   res.send('Show Stats');
+   // en "models" reviews" del e-commerce-api, tengo la explicacion de como crear los pipelines para calculateAverageRating
+
+   let stats = await Job.aggregate([
+      { $match: { createdBy: mongoose.Types.ObjectId(req.user.userId) } },
+      { $group: { _id: '$status', count: { $sum: 1 } } },
+   ]);
+
+   // console.log(stats);
+   //  [{ _id: 'pending', count: 37 },{ _id: 'declined', count: 46 },{ _id: 'interview', count: 37 }]
+
+   // solo para cambiar el formato del object
+   stats = stats.reduce((acc, curr) => {
+      const { _id: title, count } = curr;
+      acc[title] = count;
+
+      return acc;
+   }, {});
+
+   // console.log(stats);
+   //  { pending: 37, declined: 46, interview: 37 }
+
+   const defaultStats = {
+      pending: stats.pending || 0,
+      interview: stats.interview || 0,
+      declined: stats.declined || 0,
+   };
+
+   // let monthlyApplications = [];
+
+   let monthlyApplications = await Job.aggregate([
+      { $match: { createdBy: mongoose.Types.ObjectId(req.user.userId) } },
+      {
+         $group: {
+            _id: {
+               year: { $year: '$createdAt' },
+               month: { $month: '$createdAt' },
+            },
+            count: { $sum: 1 },
+         },
+      },
+      { $sort: { '_id.year': -1, '_id.month': -1 } },
+      { $limit: 6 },
+   ]);
+   // // console.log(monthlyApplications);
+   // // [ { _id: { year: 2022, month: 2 }, count: 5 },...]
+
+   monthlyApplications = monthlyApplications
+      .map(item => {
+         const {
+            _id: { year, month },
+            count,
+         } = item;
+
+         const date = moment()
+            .month(month - 1)
+            .year(year)
+            .format('MMM Y');
+
+         return { date, count };
+      })
+      .reverse();
+   // // console.log(monthlyApplications);
+   // // [{ date: 'Sep 2021', count: 3 }, ... ]
+
+   res.status(StatusCodes.OK).json({ defaultStats, monthlyApplications });
 };
 
 export { createReceta, deleteReceta, getAllRecetas, updateReceta, showStats };

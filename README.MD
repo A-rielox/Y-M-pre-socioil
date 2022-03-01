@@ -3730,9 +3730,7 @@ start();
 
 #### Show Stats - Structure
 
-✅✅✅✅✅✅✅✅✅
-✅✅✅✅✅✅✅✅✅
-✅✅✅✅✅✅✅✅✅
+✅✅✅
 
 -  aggregation pipeline
 -  step by step
@@ -3977,6 +3975,8 @@ export default StatItem;
 
 #### Aggregate Jobs Based on Year and Month
 
+✅✅✅
+
 ```js
 jobsController.js;
 
@@ -4156,7 +4156,9 @@ const AreaChartComponent = ({ data }) => {
 
 #### Get All Jobs - Initial Setup
 
-✅✅✅✅✅✅
+✅✅✅✅✅✅✅✅✅✅✅✅
+✅✅✅✅✅✅✅✅✅
+✅✅✅✅✅✅✅✅✅
 
 ```js
 jobsController.js;
