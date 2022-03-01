@@ -3693,9 +3693,7 @@ if (action.type === EDIT_JOB_ERROR) {
 
 #### Populate Database
 
-✅✅✅✅✅✅✅✅✅
-✅✅✅✅✅✅✅✅✅
-✅✅✅✅✅✅✅✅✅
+✅✅✅
 
 -  create populate.js in the root
 
@@ -3732,7 +3730,9 @@ start();
 
 #### Show Stats - Structure
 
-✅✅✅
+✅✅✅✅✅✅✅✅✅
+✅✅✅✅✅✅✅✅✅
+✅✅✅✅✅✅✅✅✅
 
 -  aggregation pipeline
 -  step by step
