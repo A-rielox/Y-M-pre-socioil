@@ -3438,9 +3438,7 @@ const handleSubmit = e => {
 
 #### Edit Job - Server
 
-✅✅✅✅✅✅✅✅✅
-✅✅✅✅✅✅✅✅✅
-✅✅✅✅✅✅✅✅✅
+✅✅✅
 
 ```js
 jobsController.js;
@@ -3592,7 +3590,9 @@ const deleteJob = async (req, res) => {
 
 #### Delete Job - Front-End
 
-✅✅✅
+✅✅✅✅✅✅✅✅✅
+✅✅✅✅✅✅✅✅✅
+✅✅✅✅✅✅✅✅✅
 
 ```js
 actions.js;
