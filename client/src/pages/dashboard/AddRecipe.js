@@ -19,7 +19,7 @@ const AddRecipe = () => {
       clearValues,
       createJob,
       isEditing,
-      // editJob,
+      editJob,
    } = useAppContext();
 
    // PRIMERO CAMBIO TODO EN EL STATE ( LOS DATOS DEL JOB ), Y LUEGO LO MANDO
@@ -31,6 +31,8 @@ const AddRecipe = () => {
       handleChange({ name, value });
    };
 
+   // al picarle a editar ( en Job.js ) ==> se meten los valores de ese trabajo en el state y se manda a la pag de crear-job con estos valores pre-llenados, aqui se editan y se manda el patch a la DB
+
    const handleSubmit = e => {
       e.preventDefault();
 
@@ -40,10 +42,8 @@ const AddRecipe = () => {
          return;
       }
 
-      console.log('create job');
-
       if (isEditing) {
-         // editJob();
+         editJob();
          return;
       }
 

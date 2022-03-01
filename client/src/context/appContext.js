@@ -22,14 +22,11 @@ import {
    CREATE_JOB_ERROR,
    GET_JOBS_BEGIN,
    GET_JOBS_SUCCESS,
+   SET_EDIT_JOB,
 } from './actions';
 
 import { statusList, jobTypeList } from '../utils/optionLists.js';
-/* 
 
-3067 de readme
-
-*/
 const token = localStorage.getItem('token');
 const user = localStorage.getItem('user');
 const userLocation = localStorage.getItem('location');
@@ -280,8 +277,13 @@ const AppProvider = ({ children }) => {
       clearAlert();
    };
 
+   // al picarle a editar ==> se meten los valores de ese trabajo en el state y se manda a la pag de crear-job con estos valores pre-llenados, aqui se editan y se manda el patch a la DB ( el "editar" está en Job.js )
    const setEditJob = id => {
-      console.log(`set edit job : ${id}`);
+      dispatch({ type: SET_EDIT_JOB, payload: { id } });
+   };
+
+   const editJob = () => {
+      console.log('edit job');
    };
 
    const deleteJob = id => {
@@ -304,6 +306,7 @@ const AppProvider = ({ children }) => {
             getJobs,
             setEditJob,
             deleteJob,
+            editJob,
          }}
       >
          {children}

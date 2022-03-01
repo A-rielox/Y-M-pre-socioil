@@ -3381,8 +3381,6 @@ return (
 #### SetEditJob
 
 ✅✅✅
-✅✅✅
-✅✅✅
 
 ```js
 actions.js;
@@ -3440,7 +3438,9 @@ const handleSubmit = e => {
 
 #### Edit Job - Server
 
-✅✅✅
+✅✅✅✅✅✅✅✅✅
+✅✅✅✅✅✅✅✅✅
+✅✅✅✅✅✅✅✅✅
 
 ```js
 jobsController.js;

@@ -17,6 +17,8 @@ const Job = ({
 }) => {
    const { setEditJob, deleteJob } = useAppContext();
 
+   // al picarle a editar ( en Job.js ) ==> se meten los valores de ese trabajo en el state y se manda a la pag de crear-job con estos valores pre-llenados, aqui se editan y se manda el patch a la DB
+
    let date = moment(createdAt);
    date = date.format('MMM Do, YYYY');
 

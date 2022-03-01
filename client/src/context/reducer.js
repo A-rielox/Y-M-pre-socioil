@@ -21,6 +21,7 @@ import {
    CREATE_JOB_ERROR,
    GET_JOBS_BEGIN,
    GET_JOBS_SUCCESS,
+   SET_EDIT_JOB,
 } from './actions';
 
 const reducer = (state, action) => {
@@ -209,21 +210,21 @@ const reducer = (state, action) => {
       };
    }
    //
-   // if (action.type === SET_EDIT_JOB) {
-   //    const job = state.jobs.find(job => job._id === action.payload.id);
-   //    console.log(job);
-   //    const { _id, position, company, jobLocation, jobType, status } = job;
-   //    return {
-   //       ...state,
-   //       isEditing: true,
-   //       editJobId: _id,
-   //       position,
-   //       company,
-   //       jobLocation,
-   //       jobType,
-   //       status,
-   //    };
-   // }
+   if (action.type === SET_EDIT_JOB) {
+      const job = state.jobs.find(job => job._id === action.payload.id);
+      const { _id, position, company, jobLocation, jobType, status } = job;
+
+      return {
+         ...state,
+         isEditing: true,
+         editJobId: _id,
+         position,
+         company,
+         jobLocation,
+         jobType,
+         status,
+      };
+   }
 
    // if (action.type === DELETE_JOB_BEGIN) {
    //    return { ...state, isLoading: true };
