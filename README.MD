@@ -4156,9 +4156,7 @@ const AreaChartComponent = ({ data }) => {
 
 #### Get All Jobs - Initial Setup
 
-✅✅✅✅✅✅✅✅✅✅✅✅
-✅✅✅✅✅✅✅✅✅
-✅✅✅✅✅✅✅✅✅
+✅✅✅
 
 ```js
 jobsController.js;
@@ -4187,7 +4185,7 @@ const getAllJobs = async (req, res) => {
 
 #### Status
 
-✅✅✅✅✅✅
+✅✅✅
 
 ```js
 jobsController.js;
@@ -4220,7 +4218,7 @@ const getAllJobs = async (req, res) => {
 
 #### JobType
 
-✅✅✅✅✅✅
+✅✅✅
 
 ```js
 jobsController.js;
@@ -4255,7 +4253,7 @@ const getAllJobs = async (req, res) => {
 
 #### Search
 
-✅✅✅✅✅✅
+✅✅✅
 
 ```js
 jobsController.js;
@@ -4304,7 +4302,9 @@ const getAllJobs = async (req, res) => {
 
 #### Search Context Setup
 
-✅✅✅✅✅✅
+✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+✅✅✅✅✅✅✅✅✅
+✅✅✅✅✅✅✅✅✅
 
 ```js
 appContext.js
