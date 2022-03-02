@@ -4720,9 +4720,7 @@ const getAllJobs = async (req, res) => {
 
 #### PageBtnContainer Setup
 
-✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
-✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
-✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+✅✅✅
 
 -  PageBtnContainer.js
 
@@ -4923,7 +4921,9 @@ if (action.type === HANDLE_CHANGE) {
 
 #### Production Setup - Fix Warnings and logoutUser
 
-✅✅✅✅✅✅
+✅✅✅✅✅✅ ✅✅✅✅✅✅ ✅✅✅✅✅✅  
+✅✅✅✅✅✅ ✅✅✅✅✅✅ ✅✅✅✅✅✅  
+✅✅✅✅✅✅ ✅✅✅✅✅✅ ✅✅✅✅✅✅
 
 -  getJobs,deleteJob,showStats - invoke logoutUser()
 -  fix warnings

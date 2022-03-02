@@ -29,6 +29,7 @@ import {
    SHOW_STATS_BEGIN,
    SHOW_STATS_SUCCESS,
    CLEAR_FILTERS,
+   CHANGE_PAGE,
 } from './actions';
 
 const reducer = (state, action) => {
@@ -160,7 +161,7 @@ const reducer = (state, action) => {
    if (action.type === HANDLE_CHANGE) {
       const { name, value } = action.payload;
 
-      return { ...state, [name]: value };
+      return { ...state, page: 1, [name]: value };
    }
 
    if (action.type === CLEAR_VALUES) {
@@ -282,9 +283,9 @@ const reducer = (state, action) => {
       };
    }
 
-   // if (action.type === CHANGE_PAGE) {
-   //    return { ...state, page: action.payload.page };
-   // }
+   if (action.type === CHANGE_PAGE) {
+      return { ...state, page: action.payload.page };
+   }
 
    throw new Error(`no such action :${action.type}`);
 };
