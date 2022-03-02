@@ -29,6 +29,7 @@ import {
    EDIT_JOB_ERROR,
    SHOW_STATS_BEGIN,
    SHOW_STATS_SUCCESS,
+   CLEAR_FILTERS,
 } from './actions';
 
 import { statusList, jobTypeList } from '../utils/optionLists.js';
@@ -67,6 +68,12 @@ export const initialState = {
    // stats
    stats: {},
    monthlyApplications: [],
+   // search & sort
+   search: '',
+   searchStatus: 'all',
+   searchType: 'all',
+   sort: 'latest',
+   sortOptions: ['latest', 'oldest', 'a-z', 'z-a'],
 };
 
 const AppContext = React.createContext();
@@ -227,6 +234,7 @@ const AppProvider = ({ children }) => {
       clearAlert();
    };
 
+   // cambia DINÁMICAMENTE VALORES EN EL STATE
    const handleChange = ({ name, value }) => {
       dispatch({ type: HANDLE_CHANGE, payload: { name, value } });
    };
@@ -265,8 +273,15 @@ const AppProvider = ({ children }) => {
       clearAlert();
    };
 
+   // los q estan en url es xq siempre tienen un valor x defecto, el search es opcional xlo q puede ser undefined
    const getJobs = async () => {
-      let url = `/recetas`;
+      const { search, searchStatus, searchType, sort } = state;
+
+      let url = `/recetas?status=${searchStatus}&jobType=${searchType}&sort=${sort}`;
+
+      if (search) {
+         url = url + `&search=${search}`;
+      }
 
       dispatch({ type: GET_JOBS_BEGIN });
 
@@ -358,6 +373,10 @@ const AppProvider = ({ children }) => {
       clearAlert();
    };
 
+   const clearFilters = () => {
+      dispatch({ type: CLEAR_FILTERS });
+   };
+
    return (
       <AppContext.Provider
          value={{
@@ -377,6 +396,7 @@ const AppProvider = ({ children }) => {
             editJob,
             clearAlert,
             showStats,
+            clearFilters,
          }}
       >
          {children}

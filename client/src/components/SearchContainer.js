@@ -6,29 +6,29 @@ const SearchContainer = () => {
    const {
       isLoading,
 
-      // search,
-      // searchStatus,
-      // searchType,
-      // sort,
-      // sortOptions,
+      search,
+      searchStatus,
+      searchType,
+      sort,
+      sortOptions,
+      statusOptions,
+      jobTypeOptions,
 
-      // statusOptions,
-      // jobTypeOptions,
-
-      // handleChange,
-      // clearFilters,
+      handleChange,
+      clearFilters,
    } = useAppContext();
 
    const handleSearch = e => {
-      // if (isLoading) return;
-      // const name = e.target.name;
-      // const value = e.target.value;
-      // handleChange({ name, value });
+      if (isLoading) return;
+      const name = e.target.name;
+      const value = e.target.value;
+      // la fcn q cambia dinámicamente los valores en el state
+      handleChange({ name, value });
    };
 
    const handleSubmit = e => {
       e.preventDefault();
-      // clearFilters();
+      clearFilters();
    };
 
    return (
@@ -38,38 +38,38 @@ const SearchContainer = () => {
 
             {/* search position */}
             <div className="form-center">
-               {/* <FormRow
+               <FormRow
                   type="text"
                   name="search"
                   value={search}
                   handleChange={handleSearch}
-               ></FormRow> */}
+               ></FormRow>
 
                {/* search by status */}
-               {/* <FormRowSelect
+               <FormRowSelect
                   labelText="job status"
                   name="searchStatus"
                   value={searchStatus}
                   handleChange={handleSearch}
                   list={['all', ...statusOptions]}
-               ></FormRowSelect> */}
+               ></FormRowSelect>
 
                {/* search by type */}
-               {/* <FormRowSelect
+               <FormRowSelect
                   labelText="job type"
                   name="searchType"
                   value={searchType}
                   handleChange={handleSearch}
                   list={['all', ...jobTypeOptions]}
-               ></FormRowSelect> */}
+               ></FormRowSelect>
 
                {/* sort */}
-               {/* <FormRowSelect
+               <FormRowSelect
                   name="sort"
                   value={sort}
                   handleChange={handleSearch}
                   list={sortOptions}
-               ></FormRowSelect> */}
+               ></FormRowSelect>
 
                <button
                   className="btn btn-block btn-danger"

@@ -4302,9 +4302,7 @@ const getAllJobs = async (req, res) => {
 
 #### Search Context Setup
 
-✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
-✅✅✅✅✅✅✅✅✅
-✅✅✅✅✅✅✅✅✅
+✅✅✅
 
 ```js
 appContext.js
@@ -4342,7 +4340,7 @@ const handleChange = ({ name, value }) => {
 
 #### Search Container - Setup
 
-✅✅✅✅✅✅
+✅✅✅
 
 ```js
 SearchContainer.js;
@@ -4393,7 +4391,7 @@ export default SearchContainer;
 
 #### Search Container - Complete
 
-✅✅✅✅✅✅
+✅✅✅
 
 ```js
 SearchContainer.js;
@@ -4479,7 +4477,7 @@ export default SearchContainer;
 
 #### Clear Filters
 
-✅✅✅✅✅✅
+✅✅✅
 
 ```js
 actions.js;
@@ -4511,7 +4509,7 @@ if (action.type === CLEAR_FILTERS) {
 
 #### Refactor Get All Jobs
 
-✅✅✅✅✅✅
+✅✅✅
 
 ```js
 const getJobs = async () => {
@@ -4564,7 +4562,7 @@ const JobsContainer = () => {
 
 #### Limit and Skip
 
-✅✅✅✅✅✅
+✅✅✅
 
 ```js
 jobsController.js;
@@ -4722,7 +4720,9 @@ const getAllJobs = async (req, res) => {
 
 #### PageBtnContainer Setup
 
-✅✅✅✅✅✅
+✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
 
 -  PageBtnContainer.js
 
